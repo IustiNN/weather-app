@@ -1,1 +1,10 @@
 <p>This is the history view.</p>
+<ul>
+  <li ng-repeat="entry in history">
+    <article>
+      <h3>{{entry.city}}</h3>
+      <p>Search {{entry.counter}} times</p>
+      <date>{{entry.date}}</date>
+    </article>
+  </li>
+</ul>

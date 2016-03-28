@@ -1,18 +1,18 @@
 <div class="jumbotron">
   <h1>Enter a city name</h1>
 
-  <div class="alert alert-danger" ng-show="!weather.data">
-    <p>Sorry, there was an error {{weather.message}}</p>
+  <div class="alert alert-danger" ng-show="error.show">
+    <p>{{error.message}}</p>
   </div>
 
   <form ng-submit="updateLocation()">
     <div class="form-group">
-      <input type="search" ng-model="city" palceholder="Enter a city name..."/>
+      <input type="search" ng-model="city" class="form-control" palceholder="Enter a city name..."/>
     </div>
     <input type="submit" value="Get forecast!" class="btn btn-primary"/>
   </form>
 
-  <div class="weather-info">
+  <div class="weather-info" ng-show="hasSearched">
     <h4>There are {{weather.list[0].temp.day}} &deg;C in {{weather.city.name}}, {{weather.city.country}} <img src="http://openweathermap.org/img/w/{{weather.list[0].weather[0].icon}}.png" alt="{{weather.list[0].weather[0].main}}"> .</h4>
     <p>{{weather.list[0].weather[0].main}}, {{weather.list[0].weather[0].description}}</p>
   </div>
@@ -22,6 +22,6 @@
 <div class="row marketing">
   <h4>Forecast by city</h4>
   <p>
-    This is a simple app that tells you what is the weather in the city you enter in the search field above.
+    This is a simple app that tells you what is the weather in the city you enter in the search field above. It uses Angular Js and Bootstrap, without jQuery.
   </p>
 </div>

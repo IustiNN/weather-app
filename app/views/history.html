@@ -1,10 +1,10 @@
 <p>This is the history view.</p>
-<ul>
-  <li ng-repeat="entry in history">
-    <article>
-      <h3>{{entry.city}}</h3>
-      <p>Search {{entry.counter}} times</p>
-      <date>{{entry.date}}</date>
-    </article>
+<p ng-show="!historyList.length">There are nothing here yet. Please go ahead and make a search <a href="#/">here</a></p>
+<div class="form-group" ng-show="historyList.length">
+  <input type="text" ng-model="searchHistory" class="form-control">
+</div>
+<ul class="list-unstyled">
+  <li ng-repeat="history in historyList | filter: searchHistory">
+      <history-item history="history"></history-item>
   </li>
 </ul>

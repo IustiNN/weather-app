@@ -1,0 +1,9 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><a href="#/" ng-click="searchFromHistory(history.city)">{{history.city}}</a></h3>
+  </div>
+  <div class="panel-body">
+    <p>Last searched: {{history.date | date : 'medium'}}</p>
+    <p>Times: {{history.counter}}</p>
+  </div>
+</div>

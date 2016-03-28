@@ -87,7 +87,6 @@ angular.module('weatherAppApp')
 
 $scope.searchFromHistory = function(city) {
   $scope.city = city;
-  // $location.path(city);
 
     $http({
       method: 'GET',
@@ -103,8 +102,6 @@ $scope.searchFromHistory = function(city) {
     $scope.weather = response.data;
     console.log($scope.weather);
     console.log($scope.historyList);
-    alert($scope.city);
-    $scope.city = city;
     $scope.loading = false;
     $scope.hasSearched = true;
     $scope.error.show = false;

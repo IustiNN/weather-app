@@ -4,7 +4,7 @@
   <input type="text" ng-model="searchHistory" class="form-control">
 </div>
 <ul class="list-unstyled">
-  <li ng-repeat="history in historyList | filter: searchHistory">
+  <li ng-repeat="history in historyList | filter: searchHistory | orderBy: 'city'">
       <history-item history="history"></history-item>
   </li>
 </ul>

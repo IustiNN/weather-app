@@ -1,9 +1,12 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><a href="#/" ng-click="searchFromHistory(history.city)">{{history.city}}</a></h3>
+    <h3 class="panel-title"><a href="#/{{history.city}}" ng-click="searchFromHistory(history.city)">{{history.city}}</a></h3>
   </div>
   <div class="panel-body">
     <p>Last searched: {{history.date | date : 'medium'}}</p>
-    <p>Times: {{history.counter}}</p>
+    <p>Searched <ng-pluralize count="history.counter" when="{'1': '1 time', 'other': '{{history.counter}} times'}">
+      </ng-pluralize>
+    </p>
+
   </div>
 </div>

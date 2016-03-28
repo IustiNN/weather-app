@@ -9,7 +9,7 @@
 */
 
 angular.module('weatherAppApp')
-.controller('MainCtrl', ['$scope', 'localStorageService', '$http', function ($scope, localStorageService, $http) {
+.controller('MainCtrl', ['$scope', '$location', 'localStorageService', '$http', function ($scope, $location, localStorageService, $http) {
   $scope.city = '';
   $scope.error = {};
   $scope.loading = false;
@@ -86,6 +86,9 @@ angular.module('weatherAppApp')
 };
 
 $scope.searchFromHistory = function(city) {
+  $scope.city = city;
+  // $location.path(city);
+
     $http({
       method: 'GET',
       url: 'http://api.openweathermap.org/data/2.5/forecast/daily?APPID=8615380fe529fe5f66942fed8cd1c327&type=accurate&q='+city+'&units=metric',
@@ -100,9 +103,10 @@ $scope.searchFromHistory = function(city) {
     $scope.weather = response.data;
     console.log($scope.weather);
     console.log($scope.historyList);
+    alert($scope.city);
+    $scope.city = city;
     $scope.loading = false;
     $scope.hasSearched = true;
-    $scope.city = '';
     $scope.error.show = false;
 
   }).catch(function (response) {
